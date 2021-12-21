@@ -2,7 +2,10 @@ const path = require('path')
 const webpack = require('webpack')
 const ESLintPlugin = require('eslint-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const {CleanWebpackPlugin} = require('clean-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+
+const isDevelopment = process.env.NODE_ENV === 'development'
 
 module.exports = {
   entry: path.resolve(__dirname, './src/index.js'),
@@ -11,12 +14,47 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: ['babel-loader'],
+        use: {
+          loader: 'babel-loader',
+        },
+      },
+      {
+        test: /\.module\.s(a|c)ss$/,
+        use: [
+          isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+              sourceMap: isDevelopment,
+            },
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: isDevelopment,
+            },
+          },
+        ],
+      },
+      {
+        test: /\.s(a|c)ss$/,
+        exclude: /\.module.(s(a|c)ss)$/,
+        use: [
+          isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
+          'css-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: isDevelopment,
+            },
+          },
+        ],
       },
     ],
   },
   resolve: {
-    extensions: ['*', '.js', '.jsx'],
+    extensions: ['*', '.js', '.jsx', '.scss'],
   },
   output: {
     path: path.resolve(__dirname, './dist'),
@@ -27,14 +65,19 @@ module.exports = {
     // contentBase: path.resolve(__dirname, './dist'),
     historyApiFallback: true,
     hot: true,
+    port: 3000,
     // publicPath: '/',
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new ESLintPlugin(),
     new HtmlWebpackPlugin({
-      template: path.join('./src', 'index.html'),
+      template: path.join('./public', 'index.html'),
       filename: 'index.html',
+    }),
+    new MiniCssExtractPlugin({
+      filename: isDevelopment ? '[name].css' : '[name].[hash].css',
+      chunkFilename: isDevelopment ? '[id].css' : '[id].[hash].css',
     }),
     new CleanWebpackPlugin(),
   ],
