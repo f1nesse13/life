@@ -8,7 +8,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const isDevelopment = process.env.NODE_ENV === 'development'
 
 module.exports = {
-  entry: path.resolve(__dirname, './src/index.js'),
+  entry: ['babel-polyfill', path.resolve(__dirname, './src/index.js')],
   module: {
     rules: [
       {
@@ -55,6 +55,15 @@ module.exports = {
   },
   resolve: {
     extensions: ['*', '.js', '.jsx', '.scss'],
+    alias: {
+      '/': path.resolve(__dirname),
+      '@styles': path.resolve(__dirname, './styles'),
+      '@colors': path.resolve(__dirname, './styles/colors'),
+      '@src': path.resolve(__dirname, './src'),
+      '@public': path.resolve(__dirname, './public'),
+      '@helpers': path.resolve(__dirname, './src/helpers'),
+    },
+    mainFiles: ['index'],
   },
   output: {
     path: path.resolve(__dirname, './dist'),
