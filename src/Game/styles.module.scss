@@ -1,0 +1,36 @@
+@import "styles/colors.scss";
+
+.window {
+    border: 1px solid $black;
+    background-color: #ddd;
+    width: fit-content !important;
+    overflow-y: scroll;
+    overflow-x: scroll;
+}
+
+.cell {
+    border: 1px solid $black;
+    width: 3px;
+    height: 3px;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    width: fit-content !important;
+}
+.column {
+    height: 30px;
+    width: 30px;
+    border: 1px solid black;
+}
+
+.active {
+    color: $active;
+    background-color: $active;
+}
+.inactive {
+    color: $inactive;
+    background-color: $inactive;
+}
