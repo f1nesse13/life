@@ -1,7 +1,12 @@
-const GameButton = ({ btnDisabled, btnText, activeGame, setActiveGame }) => {
+const GameButton = ({
+  btnDisabled,
+  btnText,
+  createNewGrid,
+  setCreateNewGrid,
+}) => {
   const handleGameBtnClick = () => {
-    console.log('Activating game...')
-    setActiveGame(!activeGame)
+    console.log('Creating grid...')
+    setCreateNewGrid(!createNewGrid)
   }
   return (
     <button type="submit" disabled={btnDisabled} onClick={handleGameBtnClick}>
