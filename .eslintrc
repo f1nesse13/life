@@ -14,7 +14,7 @@
     "node": true,
     "es6": true
   },
-  "plugins": ["prettier", "react-hooks", "jsx-a11y", "import", "react"],
+  "plugins": ["prettier", "react-hooks", "import", "react"],
   "rules": {
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "react/jsx-uses-react": "off",
@@ -39,6 +39,7 @@
         "exports": "never",
         "functions": "never"
       }
-    ]
+    ],
+    "react-hooks/exhaustive-deps": "off"
   }
 }
