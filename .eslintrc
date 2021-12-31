@@ -40,6 +40,7 @@
         "functions": "never"
       }
     ],
-    "react-hooks/exhaustive-deps": "off"
+    "react-hooks/exhaustive-deps": "off",
+    "no-confusing-arrow": "off"
   }
 }
