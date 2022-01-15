@@ -1,0 +1,68 @@
+.game_button {
+    height: 10%;
+    width: 35%;
+    text-align: center;
+    margin-bottom: 1rem;
+    padding: 1.5rem 3rem;
+    font: 1rem Arial;
+    border-radius: 5px;
+    border: 1px solid #ff495c;
+    background-color: #ff495c;
+    margin: 1rem auto;
+    box-shadow: 3px 2px 2px 1px rgba(0, 0, 0, 0.4);
+
+    &:disabled {
+        background-color: lighten(#ff495c, 20%);
+        &:hover {
+            box-shadow: 3px 2px 2px 1px rgba(0, 0, 0, 0.4);
+            transform: translateX(0rem);
+            // border: 1px solid #ff495c;
+        }
+    }
+
+    &:hover {
+        // background-color: darken(#ff495c, 3%);
+        box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.4);
+        border: 1px solid #000;
+        transform: translateX(-1rem);
+        transition: all 0.1s linear;
+        &:active {
+            box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.5) inset;
+        }
+    }
+}
+
+// Mint green
+// .game_button {
+//     height: 10%;
+//     width: 35%;
+//     text-align: center;
+//     margin-bottom: 1rem;
+//     padding: 1.5rem 3rem;
+//     font: 1rem Arial;
+//     border-radius: 5px;
+//     border: 1px solid #3ddc97;
+//     background-color: #3ddc97;
+//     margin: 1rem auto;
+//     box-shadow: 3px 2px 2px 1px rgba(0, 0, 0, 0.4);
+
+//     &:disabled {
+//         background-color: lighten(#3ddc97, 20%);
+//         &:hover {
+//             box-shadow: 3px 2px 2px 1px rgba(0, 0, 0, 0.4);
+//             transform: translateX(0rem);
+//             // border: 1px solid #3ddc97;
+//         }
+//     }
+
+//     &:hover {
+//         // background-color: darken(#3ddc97, 3%);
+//         box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.4);
+//         border: 1px solid #000;
+//         transform: translateX(-1rem);
+//         transition: all 0.1s linear;
+//         &:active {
+//             box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.5) inset;
+//         }
+//     }
+// }
