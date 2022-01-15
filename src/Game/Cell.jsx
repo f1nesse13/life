@@ -7,11 +7,11 @@ const Cell = ({
   isActive,
   wasActive,
   cellSize,
-  fadeIn,
-  fadeOut,
+  cellFadeIn,
+  cellFadeOut,
   activeColor,
   inactiveColor,
-  handleClickCell,
+  cellShape,
 }) => {
   const cell = useRef(`${gridY}${gridX}`)
 
@@ -23,25 +23,37 @@ const Cell = ({
 
   const animateCell = (targetCell) => {
     if (isActive && !wasActive) {
-      targetCell.animate({ backgroundColor: [inactiveColor, activeColor] }, { duration: fadeIn })
+      targetCell.animate(
+        { backgroundColor: [inactiveColor, activeColor] },
+        { duration: cellFadeIn }
+      )
     }
     if (wasActive && !isActive) {
-      targetCell.animate({ backgroundColor: [activeColor, inactiveColor] }, { duration: fadeOut })
+      targetCell.animate(
+        { backgroundColor: [activeColor, inactiveColor] },
+        { duration: cellFadeOut }
+      )
     }
   }
   const drawCell = (targetCell) => {
     if (isActive) {
-      targetCell.classList.remove(styles.inactive)
-      targetCell.classList.add(styles.active)
+      targetCell.style.backgroundColor = activeColor
     } else {
-      targetCell.classList.remove(styles.active)
-      targetCell.classList.add(styles.inactive)
+      targetCell.style.backgroundColor = inactiveColor
     }
   }
 
   return (
     <div className={styles.cell} aria-hidden="true">
-      <div ref={cell} className={styles.inner_cell} style={{ width: cellSize, height: cellSize }} />
+      <div
+        ref={cell}
+        className={styles.inner_cell}
+        style={{
+          width: cellSize,
+          height: cellSize,
+          borderRadius: cellShape,
+        }}
+      />
     </div>
   )
 }
