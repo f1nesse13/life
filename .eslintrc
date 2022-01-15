@@ -41,14 +41,10 @@
         "functions": "only-multiline"
       }
     ],
+    "next-line object-curly-newline": "off",
     "react-hooks/exhaustive-deps": "off",
     "no-confusing-arrow": "off",
-    "object-curly-newline": [
-      "error",
-      {
-        "multiline": true
-      }
-    ],
+    "object-curly-newline": "off",
 
     "react/no-array-index-key": ["off"],
 

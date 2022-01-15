@@ -1,0 +1,57 @@
+select,
+input {
+    width: max-content;
+    text-align: center;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+.settings_container {
+    display: flex;
+    justify-content: left;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.gamebtn_container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.nav_container {
+}
+
+.gamebtn {
+}
+
+.create_grid_btn {
+}
+
+.start_game_btn {
+}
+
+.settings_control_btn {
+}
+
+.row_input {
+}
+
+.col_input {
+}
+
+.iteration_input {
+}
+
+.start_cell_select {
+}
+
+.cell_size_select {
+}
+
+.cell_color_select {
+}
+
+.cell_shape_select {
+}
